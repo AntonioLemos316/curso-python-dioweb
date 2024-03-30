@@ -94,3 +94,104 @@
 - Boas práticas: em python é bom escrever em snake case ESTADOS_BRASILEIROS, NOME_COMPLETO, limite_saque_diario e sobre constantes o interpretador não consegue bloquear a alteração de uma 'constante'
 
 ## Convertendo tipos em python
+
+- Inteiro para float
+
+```bash
+    preco = 10
+    print(preco)
+    // 10
+
+    preco = float(preco)
+    print(preco)
+    // 10.0
+
+    preco = 10 / 2
+    print(preco)
+    // 5.0
+```
+
+- Float para inteiro
+
+```bash
+    preco = 10.30
+    print(preco)
+    // 10.3
+
+    preco = int(preco)
+    print(preco)
+    // 10
+```
+
+- Conversão por divisão com // o numero int é preservado como inteiro, com apenas / o numero int é transformado em float
+
+```bash
+    preco = 10
+    print(preco)
+    // 10
+
+    print(preco / 2)
+    // 5.0
+
+    print(preco // 2)
+    // 5
+```
+
+- Número para string
+
+```bash
+    preco = 10.50
+    idade = 19
+
+    print(str(preco))
+    // 10.5
+
+    print(str(idade))
+    // 19
+
+    texto = f"idade {idade} preco {preco}"
+    print(texto)
+    // idade 19 preco 10.5
+```
+
+- String para número
+
+```bash
+    preco = "10.50"
+    idade = "19"
+
+    print(float(preco))
+    // 10.5
+
+    print(int(idade))
+    // 19
+```
+
+- Erro de conversão
+
+```bash
+    preco = "python"
+    print(float(preco))
+
+    Traceback (most recent call last):
+    File "C:\Users\Toni\Documents\MeusProjetos\curso-python-dioweb\exercicios\ex004.py", line 34, in <module>
+    print(float(preco))
+    ValueError: could not convert string to float: 'python'
+```
+
+## Funções de entrada e saída
+
+- Função builtin input é utilizada para ler dados de entrada(teclado) basicamente fazer uma interação com o usuário
+
+- Função print é utilizada para exibir dados de saída(tela), posso atribuir argumentos opcionais (sep, end, file e flush) todos são convertidos para string e é exibida para o usário
+
+```bash
+    nome = input("Informe o seu nome abaixo: \n")
+    print('Seu nome é', nome, end="...\n")
+    print('Seu nome é', nome, sep="#")
+    // Informe o seu nome abaixo:
+    // Silva
+    // Seu nome é Silva...
+    // Seu nome é#Silva
+```
+
