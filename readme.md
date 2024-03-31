@@ -49,7 +49,7 @@
 
 <img src="./img/python002.PNG">
 
-## Modo interativo, funções dir e help
+## Modo interativo, funções dir e help em python
 
 - O interpretador do Python pode exercutar em modo que permite ao desenvolvedor escrever e ver o resultado na hora
 - Colocando (python) no terminal ou executando o scipt com a flag -i(python -i app.py) para sair escrevo exit()
@@ -57,7 +57,7 @@
 - Help sem argumentos help() e com argumentos help(100), vai falar quais são os argumentos que o metodo recebe, o que ele retorna e como funciona
 - Dir e Help são basicamente uma documentação offline
 
-## Variáveis e constantes no python
+## Variáveis e constantes em python
 
 - Variáveis
 
@@ -179,7 +179,7 @@
     ValueError: could not convert string to float: 'python'
 ```
 
-## Funções de entrada e saída
+## Funções de entrada e saída em python
 
 - Função builtin input é utilizada para ler dados de entrada(teclado) basicamente fazer uma interação com o usuário
 
@@ -195,3 +195,302 @@
     // Seu nome é#Silva
 ```
 
+## Operadores artiméticos em python
+
+```bash
+# Adição
+print(1 + 1)
+# 2
+
+# Subtração
+print(10 - 5)
+# 5
+
+# Multiplicação
+print(10 * 5)
+# 50
+
+# Divisão
+print(10 / 2)
+# 5.0
+
+# Divisão inteira
+print(10 // 2)
+# 5
+
+# Módulo
+print(10 % 3)
+# 1
+
+# Exponenciação
+print(2 ** 3)
+# 8
+```
+
+## Operadores de comparação em python
+
+```bash
+saldo = 450
+saque = 200
+print(saldo == saque)
+# == igual
+# false
+print(saldo != saque)
+# != diferente
+#true
+print(saldo >= saque)
+# >= maior ou igual
+#true
+print(saldo <= saque)
+#<= menor ou igual
+#false
+```
+
+## Operadores de atribuição em python
+
+```bash
+saldo = 500
+print(saldo)
+# = atribuir
+# 500
+# saldo += 200
+# print(saldo)
+# saldo = saldo + 200
+# 700
+saldo -= 100
+print(saldo)
+# saldo = saldo - 100
+# 400
+```
+
+## Operadores Lógicos em python
+
+```bash
+saldo = 1000
+saque = 200
+limite = 100
+print(saldo >= saque and saque <= limite)
+# True and False = False
+# False
+# Operador and em python, similar/igual ao && em js
+```
+
+```bash
+saldo = 1000
+saque = 200
+limite = 100
+print(saldo >= saque or saque <= limite)
+# True and False = True
+# True
+# Operador or em python, similar/igual ao || em js
+```
+
+```bash
+saldo = 1000
+saque = 200
+limite = 100
+print(not saldo >= saque)
+# A negação de True é False
+# False
+# Operador not em python, similar/igual ! em js
+```
+
+## Operadores de identidade em python
+
+```bash
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a is b) # ocupa o mesmo espaço na mémoria ? False
+print(a is not b) # não ocupa o mesmo espaço na mémoria ? True
+```
+
+```bash
+curso = 'curso em python'
+curso_python = curso
+
+print(curso is curso_python) # ocupa o mesmo espaço na mémoria ? True
+print(curso is not curso_python) # não ocupa o mesmo espaço na mémoria ? False
+```
+
+## Operador de associação em python
+
+```bash
+curso = "Curso de Python"
+frutas = ["Maçã", "Uva", "Pera"]
+saques = [1500, 500]
+
+print("Python" in curso)
+# "Python" está dentro da variável curso = True
+# True
+print("Laranja" not in frutas)
+# "Laranja" não está dentro do array frutas = True
+# True
+print(200 in saques)
+# 200 está dentro do array saques = False
+# False
+```
+
+## Identação e blocos em python
+
+- Em python identar alem de manter o código legível e manutenível ele também exerce um papel importante de definir onde um bloco de comando inicia e onde ele termina em javascript seria {} para delimitar inicio/fim de um bloco, em python não tem, ele tem apenas : para definir o inicio do bloco
+- Em python utilizamos uma convenção de 4 espaçoes em branco para identar um bloco
+
+```bash
+def sacar(valor):
+    saldo = 500
+
+    if saldo >= valor:
+        print("Valor sacado!")
+        print("Retire o dinheiro na boca do caixa!")
+
+    print("Obrigado por ser nosso cliente tenha um bom dia!")
+
+sacar(500)
+# Valor sacado!
+# Retire o dinheiro na boca do caixa!
+# Obrigado por ser nosso cliente tenha um bom dia!
+```
+
+## Estruturas condicionais em python
+
+```bash
+saldo = 2000.0
+saque = float(input("Informe o valor do saque: "))
+
+if saldo >= saque:
+    print("Realizando saque!")
+
+if saldo < saque:
+    print("Saldo insuficiente!")
+# if se o saque for maior exibir Realizando saque!
+# if se o saque for menor exibir Saldo insuficiente!
+```
+
+```bash
+saldo = 2000.0
+saque = float(input("Informe o valor do saque: "))
+
+if saldo >= saque:
+    print("Realizando saque!")
+else:
+    print("Saldo insuficiente!")
+# if se o saque for maior exibir Realizando saque!
+# else se o saque não for maior exibir Saldo insuficiente!
+```
+
+```bash
+opcao = int(input("Informe uma opção: \n[1] Sacar\n[2] Extrato\n"))
+
+if opcao == 1:
+    valor = float(input("Informe a quantia para o saque: "))
+elif opcao == 2:
+    print("Exibindo o extrato...")
+else:
+    exit("Opção inválida")
+# if se opcao for igual a 1 pedimos a quantia que será sacada
+# elif se não, se igual a 2 exiba o extrato
+# else se não opção inválida
+```
+
+## if aninhado em python
+
+```bash
+conta_normal = True
+conta_universidade = False
+
+saldo = 2000
+saque = 2500
+cheque_especial = 450
+
+if conta_normal:
+    if saldo >= saque:
+        print("Saque realizado com sucesso!")
+    elif saque <= (saldo + cheque_especial):
+        print("Saque realizado com uso do cheque especial!")
+    else:
+        print("Saldo insuficiente!")
+elif conta_universidade:
+    if saldo >= saque:
+        print("Saque realizado com sucesso!")
+    else:
+        print("Saldo insuficiente")
+else:
+    print("Sistema não reconhece essa opção, entre em contato com o banco")
+```
+
+## If ternário em python
+
+```bash
+saldo = 500
+saque = 500
+
+status = "Sucesso" if saldo >= saque else "Falha"
+print(f"{status} ao realizar o saque!")
+# Sucesso ao realizar o saque!
+```
+
+## Estrutura de repetição em python
+
+```bash
+texto = input("Informe um texto: ")
+VOGAIS = "AEIOU"
+
+for letra in texto:
+    if letra.upper() in VOGAIS:
+        print(letra, end="")
+print()
+# python
+# o
+# Geralmente utilizamos o for quando temos um valor predeterminado
+```
+
+## Função range com for no python
+
+```bash
+for numero in range(0, 11):
+    print(numero, end=" ")
+# 0 1 2 3 4 5 6 7 8 9 10
+# Geralmente utilizamos o for quando temos um valor predeterminado
+```
+
+```bash
+# Tabuada do 5
+for numero in range(0, 51, 5):
+    print(numero, end=" ")
+# 0 5 10 15 20 25 30 35 40 45 50
+# Geralmente utilizamos o for quando temos um valor predeterminado
+```
+
+## While em python
+
+```bash
+opcao = -1
+
+while opcao != 0:
+    opcao = int(input("[1] Sacar \n[2] Extrato \n[0] Sair \n: "))
+
+    if opcao == 1:
+        print("Sacando...")
+    elif opcao == 2:
+        print("Exibir o extrato...")
+
+print("Obrigado por utilizar nosso Sistema")
+# Geralmente utilizamos o while quando não temos um valor predeterminado
+```
+
+```bash
+while True:
+    opcao = int(input("[1] Sacar \n[2] Extrato \n[0] Sair \n: "))
+
+    if opcao == 1:
+        print("Sacando...")
+    elif opcao == 2:
+        print("Exibir o extrato...")
+    elif opcao == 0:
+        break
+
+print("Obrigado por utilizar nosso Sistema")
+# Bem parecido com o outro exemplo só que contem o break
+# Geralmente o break é utilizado em um loop infinito como no exemplo acima
+```
