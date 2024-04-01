@@ -691,3 +691,299 @@ while True:
         print("Digite uma opção válida!")
 
 ```
+
+## Trabalhando com listas em python
+
+- Listas Criação e acesso aos dados
+
+```bash
+# Forma que será encontrada na maioria das vezes
+frutas = ["Laranja", "Maçã", "Uva"]
+frutas[0]
+# Laranja
+
+# Lista vazia
+frutas = []
+
+# Método construtor list
+letras = list("python")
+
+numeros = list(range(10))
+
+carro = ["Ferrari", "F8", 4200000, 2020, 2900, "Recife", True]
+```
+
+- Matriz
+
+```bash
+# lista bidimensional(tabelas)
+matriz = [
+    [1, "a", 2],
+    [3, 4, "f"],
+    ["o", 5, 2]
+]
+
+print(matriz[0][1])
+# a
+print(matriz[1][0])
+# 3
+print(matriz[2][2])
+# 2
+```
+
+- Fatiamento
+
+```bash
+
+lista = ['p', 'y', 't', 'h', 'o', 'n']
+
+lista[0:3:2]
+# ['p', 't']
+lista[::]
+# ['p', 'y', 't', 'h', 'o', 'n']
+```
+
+- Iterar listas
+
+```bash
+
+carros = ["gol", "celta", "palio"]
+
+for carro in carros:
+    print(carro)
+# gol
+# celta
+# palio
+```
+
+- Função enumerate
+
+```bash
+
+for indice, carro in enumerate(carros):
+    print(f"{indice} : {carro}")
+# 0 : gol
+# 1 : celta
+# 2 : palio
+
+```
+
+- Compreensão de listas
+
+```bash
+# Filtro versao 1
+numeros = [1, 2, 3, 4, 5, 6, 7, 8]
+pares = []
+for numero in numeros:
+    if numero % 2 == 0:
+        pares.append(numero)
+        # append é parecido/igual com o push do js
+        # [2, 4, 6, 8]
+
+# Filtro versao 2
+numeros = [1, 2, 3, 4, 5, 6, 7, 8]
+pares = [numero for numero in numeros if numero % == 0]
+# [2, 4, 6, 8]
+```
+
+- Métodos da classe list
+
+```bash
+
+lista = []
+lista.append(2)
+lista.append("String")
+lista.append(["array", "?", "muito", "parecido", "!"])
+# [2, 'String', ['array', '?', 'muito', 'parecido', '!']]
+
+lista.clear()
+# limpar lista
+# []
+
+[].copy
+# forma de garantir uma copia
+
+[].count
+# forma de contar os objetos dentro da lista
+
+[].extend
+# forma de juntar as listas
+
+["objeto"].index
+# saber a posição do "objeto"
+
+[].pop
+# algo legal das listas é que elas vem organizadas como uma pilha
+# pilha conceito = geralmente a ultima adição é a primeira a ser retirada
+# podemos passar uma referência no pop
+
+[].remove
+# diferente do pop passamos o objeto e não a referência
+
+[].reverse
+# colocar a lista ao contrario parecido com o -1 usado anteriormente
+
+[].sort
+# sorteia(ordena) a lista
+# podemos passar tipos de ordenamento por string por reverse
+# pode passar a key e o reverse
+
+lista = [0, 1, 2, 3, 4]
+len(lista)
+# 5
+# bem parecido com o length do js
+
+lista = [0, 1, 2, 3, 4]
+sorted(lista)
+# serve também para ordenar uma lista
+# pode passar a key e o reverse
+
+```
+
+## Tuplas
+
+- Irmã da lista
+
+```bash
+# tupla é bem mais restrita
+# tupla é imutável
+# por uma virgula no final é uma boa pratica para não da bronca do interpretador o qual pode confundir uma tupla com uma precedência
+frutas = ("laranja", "pera", "uva",)
+frutas[0] # laranja
+
+letras = tuple("python")
+numeros = tuple([1, 2, 3, 4])
+pais = ("Brasil",)
+```
+
+- Tuplhas aninhadas
+
+```bash
+# observar os parênteses
+matriz = (
+    (1, "a", 2),
+    (3, 4, "f"),
+    ("o", 5, 2),
+)
+
+print(matriz[0][1])
+# a
+print(matriz[1][0])
+# 3
+print(matriz[2][2])
+# 2
+```
+
+- fatiamento igual ao de listas inicio:final:elementos pulados
+- ao tentar atribuir valores a tupla ela irá retornar um erro TypeError: 'tuple' does not item assignment
+- iterar também é igual a lista
+- principal diferença, tem bem menos métodos
+- ().count | ().index | len() | apenas esses métodos
+
+## Conjuntos em python
+
+- Um set é uma coleção que não possui objetos repetidos,
+  usamos sets para representar conjuntos matemáticos ou eliminar itens duplicados de um iterável
+- Conjuntos (set) em python não suportam indexação caso for preciso acessar precisamos converter o set para lista
+- O massa do set | conjunto é que podemos fazer todas as operações que fazemos na matemática
+
+```bash
+listaNum = set([1, 1, 2, 2, 3, 4, 5])
+print(listaNum)
+# {1, 2, 3, 4, 5}
+# o set não garante a ordem
+tupla_de_carros = set(("palio", "gol", "gol", "celta", "palio",))
+print(tupla_de_carros)
+# {"palio", "gol", "celta"} # cuidado aqui ele retornou sempre alterando a orgem
+
+numeros = {1, 2, 3, 4, 5} # set | conjunto
+numeros = list(numeros)
+numeros[0]
+# 1
+for numero in numeros:
+    print(numero)
+# 1 2 3 4 5
+
+carros = {"gol", "palio", "celta"}
+for indice, carro in enumerate(carros):
+    print(f"{indice} : {carro}")
+# 0 : celta 1 : gol 2 : palio
+
+conjunto_a = {1, 2, 3}
+conjunto_b = {2, 3, 4}
+
+print(conjunto_a.union(conjunto_b))
+# {}.union
+# {1, 2, 3, 4}
+print(conjunto_a.intersection(conjunto_b))
+# {}.intersection
+# {2, 3}
+print(conjunto_a.difference(conjunto_b))
+# {1}
+print(conjunto_b.difference(conjunto_a))
+# {4}
+print(conjunto_a.symmetric_difference(conjunto_b))
+# {1, 4}
+
+sorteio = {1, 23, 24}
+sorteio.add(5)
+print(sorteio)
+# {24, 1, 5, 23}
+
+sorteio.copy()
+print(sorteio)
+# {24, 1, 5, 23}
+
+sorteio.discard(1)
+print(sorteio)
+# {24, 5, 23}
+
+sorteio.pop()
+print(sorteio)
+# {5, 23}
+
+sorteio.remove(23)
+print(sorteio)
+# {5}
+
+print(1 in sorteio)
+# False
+
+print(len(sorteio))
+# 1
+
+sorteio.clear()
+print(sorteio)
+# set()
+
+```
+
+## Dicionário
+
+- Um dicionário é um conjunto não-ordenado de pares chave:valor, onde as chaves são únicas em uma dada instância do dicionário. Dicionários são delimitados por chaves: {}, e contém uma lista de pares chaves:valor separa por vírgulas.
+
+```bash
+
+pessoa = {"nome": "Gui", "idade":28}
+# ambos os códigos são equivalentes
+pessoa = dict(nome="Gui", idade=28)
+
+nome = pessoa["nome"]
+print(nome) # Gui
+
+```
+
+- Dicionários aninhados
+
+```bash
+
+contatos = {
+    "gui@email.com": {"nome": "Gui", "telefone": "3333-3333"},
+    "silva@email.com": {"nome": "Silva", "telefone": "3344-3333"},
+    "marques@email.com": {"nome": "Marques", "telefone": "3355-3333"},
+}
+
+telefone = contatos["silva@email.com"]["telefone"]
+print(telefone) # 3344-3333
+
+```
