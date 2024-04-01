@@ -987,3 +987,39 @@ telefone = contatos["silva@email.com"]["telefone"]
 print(telefone) # 3344-3333
 
 ```
+
+- Iterar dicionários
+- Forma mais comum é com o for
+
+```bash
+
+contatos = {
+    "gui@email.com": {"nome": "Gui", "telefone": "3333-3333"},
+    "silva@email.com": {"nome": "Silva", "telefone": "3344-3333"},
+    "marques@email.com": {"nome": "Marques", "telefone": "3355-3333"},
+}
+
+# não tão comum essa sintaxe aqui
+for chave in contatos:
+    print(chave, contatos[chave])
+
+# geralmente essa aqui é mais usada retorna uma lista de tupla
+# também por ser mais declarativa e mais legível
+for chave, valor in contatos.items():
+    print(chave, valor)
+```
+
+- Métodos da classe dict
+- {}.clear limpara o dicionário
+- {}.copy tirar uma cópia do dicionário, alteramos a cópia e o original permanece inalterado
+- {}.fromkeys criamos chave para o dicionário, podemos criar novas chaves com ou sem padrão
+- {}.get segunda forma de acessar o dicionário, podemos verificar se existe a chave e podemos informar que se ele não achar uma chave pedimos para retornar um dicionário vazio
+- {}.items retornar uma lista de tuplas
+- {}.keys retorna só as chaves
+- {}.pop remover uma chave do dicionário, podemos verificar se existe a chave e podemos informar que se ele não achar uma chave pedimos para retornar um dicionário vazio
+- {}.popitem remove os itens na sequência
+- {}.setdefault se o atributo não existir, ele adiciona do jeito que for passado se existir ele não altera e respeita a chave, é uma maneira bem elegante e muito usada para não ficar verificando se uma chave existe ou não
+- {}.update atuliazamos um dicionário com outro dicionário e se não tiver as chaves ele as adiciona
+- {}.values retorna só os valores do dicionário
+- in é uma forma elegante para verificar se uma chave existe ou não
+- del é uma outra forma de tirar um valor do dicionário, muito cuidado ao usar

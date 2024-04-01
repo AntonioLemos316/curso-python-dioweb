@@ -5,11 +5,26 @@
 # nome = pessoa["nome"] # Gui
 # print(nome)
 
+# contatos = {
+#     "gui@email.com": {"nome": "Gui", "telefone": "3333-3333"},
+#     "silva@email.com": {"nome": "Silva", "telefone": "3344-3333"},
+#     "marques@email.com": {"nome": "Marques", "telefone": "3355-3333"},
+# }
+
+# telefone = contatos["silva@email.com"]["telefone"] # 3344-3333
+# print(telefone)
+
 contatos = {
     "gui@email.com": {"nome": "Gui", "telefone": "3333-3333"},
     "silva@email.com": {"nome": "Silva", "telefone": "3344-3333"},
     "marques@email.com": {"nome": "Marques", "telefone": "3355-3333"},
 }
 
-telefone = contatos["silva@email.com"]["telefone"] # 3344-3333
-print(telefone)
+# telefone = contatos["silva@email.com"]["telefone"]
+# print(telefone) # 3344-3333
+
+# for chave in contatos:
+#     print(chave, contatos[chave])
+
+for chave, valor in contatos.items():
+    print(chave, valor)
