@@ -1019,7 +1019,74 @@ for chave, valor in contatos.items():
 - {}.pop remover uma chave do dicionário, podemos verificar se existe a chave e podemos informar que se ele não achar uma chave pedimos para retornar um dicionário vazio
 - {}.popitem remove os itens na sequência
 - {}.setdefault se o atributo não existir, ele adiciona do jeito que for passado se existir ele não altera e respeita a chave, é uma maneira bem elegante e muito usada para não ficar verificando se uma chave existe ou não
-- {}.update atuliazamos um dicionário com outro dicionário e se não tiver as chaves ele as adiciona
+- {}.update atualizamos um dicionário com outro dicionário e se não tiver as chaves ele as adiciona
 - {}.values retorna só os valores do dicionário
 - in é uma forma elegante para verificar se uma chave existe ou não
 - del é uma outra forma de tirar um valor do dicionário, muito cuidado ao usar
+
+## Funções em python
+
+- Sintaxe de funções em python
+
+```bash
+
+def exibir_ola():
+    print("Olá mundo!")
+exibir_ola() # Olá mundo!
+
+def exibir_param(param):
+    print(f"Olá {param}")
+exibir_param("testando") # Olá testando
+
+def exibir_num(num = 2):
+    print(f"Exibindo: {num}")
+exibir_num() # Exibindo 2
+
+def exibir_soma(num1 = 2, num2 = 5):
+    print(f"Soma: {num1 + num2}")
+exibir_soma() # Soma: 7
+
+def calcular_total(lista_numeros):
+    return sum(lista_numeros)
+print(calcular_total([1, 5, 14])) # 20
+
+def sucessor_e_antecessor(numero):
+    antecessor = numero - 1
+    sucessor = numero + 1
+    return antecessor, sucessor
+print(sucessor_e_antecessor(5)) # (4, 6)
+
+def salvar_user(nome, email, senha):
+    user = (nome, email, senha,) # passando como tupla, testei a list e sempre alterava a ordem
+    return print(user)
+salvar_user(nome = "Lemos", email = "lemos@email.com", senha = "123")
+salvar_user("Silva", "silva@email.com", "123456")
+salvar_user("teste@email", "teste_nome", "123456") # passar os parametros assim pode resultar em erro
+salvar_user(**{"nome":"Oliveira", "email":"oliveira@email.com", "senha":"123"}) # passando como dicionário
+
+```
+
+- Args e Kwargs \*args = tupla e \*\*kwargs = dicionário
+- Podemos passar por posição, posição e chave ou só chave (pos, pos, /, chave) antes da barra é obrigatório ser passado só por posição
+- Apenas por valor (\*, chave, chave)
+- Hibrido (modelo, /, \*, marca)
+- Bem confuso essas formas de querer algo obrigatório ou não, provavelmente tenha alguma utilidade
+- Em python temos o escopo local e escopo global - o que é feito dentro de uma função é de escopo local para ser utilizado de forma global temos que usar a palavra-chave global e não é uma boa prática
+
+```bash
+# salario esta fora do escopo da função salario_bonus
+salario = 500
+
+def salario_bonus(bonus):
+    global salario # Obs: sem utilizar o global não funcionaria o interpretador não permitiria
+    salario += bonus
+    return salario
+# declarando uma varável que recebe 500
+# criando uma função que tem um parâmetro chamado bonus
+# com a palavra-chave global conseguimos usar a variável salario e com isso pegamos seu valor
+# salario vai receber ele mesmo (salario) + o bônus que será passado através do parâmetro (bonus)
+# resumo não é uma boa prática usar o global é parecido com o var do js que ficou em desuso
+result = salario_bonus(100)
+print(result) # 600
+
+```
